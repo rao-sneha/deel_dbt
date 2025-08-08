@@ -63,6 +63,8 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+### Skip Step 2. and 3. for reviewing the assignment as the database is setup in Neon DB. The profiles.yml file with the DB creeentials is shared via email.
+
 
 ### 2. Database Setup (PostgreSQL)
 
