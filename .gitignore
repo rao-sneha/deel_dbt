@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+.venv
+venv/
+ENV/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# DBT
+logs/
+target/
+.dbt/
+
+# MacOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Node
+node_modules/
+
+# General
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# CSV/Excel/Parquet data
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.parquet
+
+# Ignore secrets
+secrets.*
+
+# Ignore compiled files
+*.so
+*.dll
+*.dylib
+
+# Ignore HTML and PDF outputs
+*.html
+*.pdf

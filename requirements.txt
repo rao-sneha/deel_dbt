@@ -1,0 +1,22 @@
+# Core Data Analysis Libraries
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# dbt and Database Libraries
+dbt-core>=1.10.3
+dbt-postgres>=1.9.0
+psycopg2-binary>=2.9.0
+
+# Additional Analysis Libraries
+plotly>=5.15.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+
+# Development and Documentation
+ipywidgets>=8.0.0
+nbformat>=5.9.0
+missingno-0.5.2

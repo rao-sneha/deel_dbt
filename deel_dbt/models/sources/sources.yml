@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: globepay
+    description: "Raw Globepay transaction and chargeback data from CSV files"
+    schema: dbt_raw
+    tables:
+      - name: acceptance_report
+        identifier: globepay__acceptance_report
+        description: "Raw acceptance report data with transaction states and amounts"
+        columns:
+          - name: external_ref
+            description: "Unique transaction identifier"
+            tests:
+              - not_null
+              - unique
+          - name: status
+            description: "Transaction status flag"
+          - name: source
+            description: "Transaction source system"
+          - name: ref
+            description: "Internal reference number"
+          - name: date_time
+            description: "Transaction timestamp"
+            tests:
+              - not_null
+          - name: state
+            description: "Transaction state (ACCEPTED/DECLINED)"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['ACCEPTED', 'DECLINED']
+          - name: cvv_provided
+            description: "Whether CVV was provided for the transaction"
+          - name: amount
+            description: "Transaction amount in local currency"
+            tests:
+              - not_null
+          - name: country
+            description: "Transaction country code"
+            tests:
+              - not_null
+          - name: currency
+            description: "Transaction currency code"
+            tests:
+              - not_null
+          - name: rates
+            description: "JSON string containing exchange rates"
+
+      - name: chargeback_report
+        identifier: globepay__chargeback_report
+        description: "Raw chargeback data"
+        columns:
+          - name: external_ref
+            description: "Transaction reference from acceptance report"
+            tests:
+              - not_null
+          - name: status
+            description: "Chargeback status"
+          - name: source
+            description: "Chargeback source"
+          - name: chargeback
+            description: "Boolean indicating actual chargeback"
+            tests:
+              - not_null

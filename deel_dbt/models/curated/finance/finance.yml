@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fct_unrealized_chargebacks
+    description: "Analysis of potential unrealized chargebacks by country and transaction age"
+    columns:
+      - name: country
+        description: "Card country code"
+      - name: transaction_age_bucket
+        description: "Age bucket of transactions"
+      - name: total_accepted
+        description: "Total accepted transactions"
+      - name: chargeback_count
+        description: "Number of chargebacks observed"
+      - name: chargeback_rate_pct
+        description: "Chargeback rate as percentage"
+
+  - name: fct_declined_volume_by_country
+    description: "Analysis of declined transaction volume by country (>$25M threshold)"
+    columns:
+      - name: country
+        description: "Card country code"
+      - name: declined_transaction_count
+        description: "Number of declined transactions"
+      - name: total_declined_millions_usd
+        description: "Total declined volume in millions USD"
+      - name: avg_declined_txn_usd
+        description: "Average declined transaction amount in USD"
+      - name: declined_volume_pct_of_global
+        description: "Percentage of global declined volume"
+      - name: formatted_amount
+        description: "Formatted display amount"

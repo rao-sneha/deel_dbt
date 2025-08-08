@@ -1,0 +1,65 @@
+extenversion: 2
+
+models:
+  - name: stg_globepay__acceptance_report
+    description: "Cleaned and standardized acceptance report data with consistent naming and data types"
+    columns:
+      - name: transaction_ref
+        description: "Unique transaction identifier from external system"
+        tests:
+          - not_null
+          - unique
+      - name: globepay_ref
+        description: "Internal Globepay reference number"
+      - name: transaction_datetime
+        description: "Transaction timestamp in UTC"
+        tests:
+          - not_null
+      - name: txn_date
+        description: "Transaction date component"
+      - name: transaction_source
+        description: "Source of the transaction"
+      - name: transaction_state
+        description: "Transaction state (ACCEPTED/DECLINED)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ACCEPTED', 'DECLINED']
+      - name: transaction_amount
+        description: "Transaction amount in local currency"
+        tests:
+          - not_null
+      - name: transaction_currency
+        description: "Transaction currency code"
+        tests:
+          - not_null
+      - name: card_country
+        description: "Country code of the card"
+        tests:
+          - not_null
+      - name: cvv_provided
+        description: "Boolean indicating if CVV was provided"
+      - name: status
+        description: "Status flag for the transaction"
+      - name: fx_rates
+        description: "JSON object containing foreign exchange rates"
+      - name: transaction_fx_rate
+        description: "Exchange rate for the transaction currency to USD"
+      - name: transaction_amount_usd
+        description: "Transaction amount converted to USD"
+
+  - name: stg_globepay__chargeback_report
+    description: "Cleaned and standardized chargeback report data"
+    columns:
+      - name: transaction_ref
+        description: "Transaction reference linking to acceptance report"
+        tests:
+          - not_null
+      - name: transaction_source
+        description: "Source of the transaction"
+      - name: chargeback
+        description: "Boolean indicating if this is an actual chargeback"
+        tests:
+          - not_null
+      - name: status
+        description: "Status flag for the chargeback"

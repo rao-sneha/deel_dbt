@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fct_acceptance_performance
+    description: "Daily, weekly, and monthly acceptance performance metrics"
+    columns:
+      - name: aggregation_level
+        description: "Level of aggregation (daily, weekly, monthly)"
+      - name: period
+        description: "Time period for the aggregation"
+      - name: total_transactions
+        description: "Total number of transactions"
+      - name: accepted_transactions
+        description: "Number of accepted transactions"
+      - name: declined_transactions
+        description: "Number of declined transactions"
+      - name: total_volume_usd
+        description: "Total transaction volume in USD"
+      - name: accepted_volume_usd
+        description: "Accepted transaction volume in USD"
+      - name: declined_volume_usd
+        description: "Declined transaction volume in USD"
+      - name: acceptance_rate_pct
+        description: "Acceptance rate by transaction count"
+      - name: acceptance_volume_pct
+        description: "Acceptance rate by volume"
+      - name: weekend_acceptance_rate_pct
+        description: "Weekend acceptance rate by count"
+      - name: weekend_acceptance_volume_pct
+        description: "Weekend acceptance rate by volume"

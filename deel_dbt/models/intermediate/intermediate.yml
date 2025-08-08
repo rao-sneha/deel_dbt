@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: int_transactions_with_chargeback
+    description: "Enriched transaction data with chargeback information, time dimensions, and business logic"
+    columns:
+      - name: transaction_ref
+        description: "Unique transaction identifier"
+        tests:
+          - not_null
+          - unique
+      - name: transaction_date
+        description: "Transaction date"
+      - name: transaction_datetime
+        description: "Transaction timestamp"
+      - name: is_accepted
+        description: "Boolean flag for accepted transactions"
+      - name: is_declined
+        description: "Boolean flag for declined transactions"
+      - name: is_chargeback
+        description: "Boolean flag for transactions with chargebacks"
+      - name: transaction_amount_usd
+        description: "Transaction amount in USD"
+      - name: transaction_age_days
+        description: "Age of transaction in days from dataset end date"
+      - name: transaction_age_bucket
+        description: "Bucketed transaction age for analysis"
+      - name: transaction_amount_usd_bucket
+        description: "Bucketed transaction amount for analysis"
+      - name: is_high_value_txn
+        description: "Boolean flag for high value transactions (>$1000)"
+      - name: is_high_risk_time_txn
+        description: "Boolean flag for high value weekend transactions"
+      - name: cvv_missing
+        description: "Boolean flag for transactions missing CVV"
+      - name: fx_declined
+        description: "Count flag for FX-related declined transactions"
+      - name: fx_chargeback
+        description: "Count flag for FX-related chargebacks"
+      - name: is_weekend_transaction
+        description: "Boolean flag for weekend transactions"

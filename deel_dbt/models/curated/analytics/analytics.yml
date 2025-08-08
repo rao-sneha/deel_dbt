@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: fct_tableau_dashboard_master
+    description: "Comprehensive analytics table optimized for Tableau dashboards with all key metrics and KPIs"
+    columns:
+      - name: transaction_date
+        description: "Transaction date"
+      - name: card_country
+        description: "Card country code"
+      - name: transaction_currency
+        description: "Transaction currency"
+      - name: transaction_source
+        description: "Transaction source"
+      - name: transaction_hour
+        description: "Hour of transaction (0-23)"
+      - name: day_type
+        description: "Weekend or Weekday classification"
+      - name: time_period
+        description: "Time period classification (Morning, Afternoon, Evening, Night)"
+      - name: total_transactions
+        description: "Total number of transactions"
+      - name: accepted_transactions
+        description: "Number of accepted transactions"
+      - name: declined_transactions
+        description: "Number of declined transactions"
+      - name: chargeback_transactions
+        description: "Number of chargeback transactions"
+      - name: total_volume_usd
+        description: "Total volume in USD"
+      - name: accepted_volume_usd
+        description: "Accepted volume in USD"
+      - name: chargeback_volume_usd
+        description: "Chargeback volume in USD"
+      - name: acceptance_rate_pct
+        description: "Acceptance rate percentage"
+      - name: decline_rate_pct
+        description: "Decline rate percentage"
+      - name: chargeback_rate_pct
+        description: "Chargeback rate percentage"
+      - name: high_value_rate_pct
+        description: "High value transaction rate"
+      - name: cvv_missing_rate_pct
+        description: "CVV missing rate"
+      - name: weekend_rate_pct
+        description: "Weekend transaction rate"
+      - name: fx_impact_pct
+        description: "Foreign exchange impact percentage"
+      - name: total_volume_millions_usd
+        description: "Total volume in millions USD"

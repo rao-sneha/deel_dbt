@@ -1,0 +1,70 @@
+name: 'deel_dbt'
+version: '1.0.0'
+
+profile: 'deel_dbt'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Seed configurations
+seeds:
+  deel_dbt:
+    +schema: raw
+    calendar:
+      +column_types:
+        date: date
+        day_of_week: varchar(50)
+        day_of_month: integer
+        day_of_year: integer
+        month_number: integer
+        week_number: integer
+        month_name: varchar(50)
+        year: integer
+        quarter_number: integer
+        quarter_name: varchar(10)
+        weekend: boolean
+        first_date_of_month: date
+        last_date_of_month: date
+
+models:
+  deel_dbt:
+    staging:
+      +materialized: view
+      +schema: stg
+      +docs:
+        node_color: "yellow"
+    intermediate:
+      +materialized: table
+      +schema: int
+      +docs:
+        node_color: "green"
+    curated:
+      +materialized: table
+      +schema: curated
+      +docs:
+        node_color: "blue"
+
+# Snapshots
+snapshots:
+  deel_dbt:
+    +schema: snapshot
+    
+# Tests configuration
+tests:
+  deel_dbt:
+    +store_failures: true
+    +schema: test_failures
+    
+# Documentation
+vars:
+  project_id: "deel_analytics"
+  dataset_id: "globepay"
+  project_timezone: "UTC"
