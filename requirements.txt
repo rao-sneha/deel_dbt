@@ -19,4 +19,4 @@ scikit-learn>=1.3.0
 # Development and Documentation
 ipywidgets>=8.0.0
 nbformat>=5.9.0
-missingno-0.5.2
+missingno>=0.5.2
